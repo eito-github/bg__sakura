@@ -1,0 +1,18 @@
+$sp: 375px;
+$tab: 768px;
+$pc: 1366px;
+
+$breakpoints: (
+    //キー : 値
+    "sp": "(max-width: 767px)",
+    "pc": "(min-width: 768px)"
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: sp) {
+    //map-get(マップ型変数, キー)で値を取得
+    @media #{map-get($breakpoints, $breakpoint)} {
+        //この中をカスタムできる
+        @content;
+    }
+}
